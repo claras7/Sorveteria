@@ -292,11 +292,11 @@ MonoBehaviour:
   - {fileID: 543037907}
   - {fileID: 1589403937}
   - {fileID: 2141660843}
-  nomeProximaFase: 
   niveis:
   - enunciado: 
     opcoes: []
     indiceRespostaCorreta: 0
+  nomeProximaFase: Fase_Multiplicacao
 --- !u!4 &178539299
 Transform:
   m_ObjectHideFlags: 0

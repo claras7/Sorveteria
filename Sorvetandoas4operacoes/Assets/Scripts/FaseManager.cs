@@ -1,67 +1,41 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
-[System.Serializable]
-public class NivelComOpcoes
-{
-    public string enunciado;
-    public string[] opcoes = new string[4]; // 4 opções
-    public int indiceRespostaCorreta; // Índice de 0 a 3
-}
+using UnityEngine.SceneManagement;
+using TMPro; // se usar TextMeshPro
 
 public class FaseManager : MonoBehaviour
 {
-    [Header("Referências da UI")]
-    public TextMeshProUGUI textoEnunciado;
-    public Button[] botoesResposta;               // Botões na mesma ordem das opções
-    public TextMeshProUGUI[] textosBotoes;
-
-    [Header("Configuração de níveis")]
-    [SerializeField]
-    public NivelComOpcoes[] niveis;
-
-    private int nivelAtual = 0;
+    public float tempoLimite = 30f;
+    private float tempoRestante;
+    public TextMeshProUGUI textoTempo; // Ou Text se estiver usando UI > Text
+    public GameObject painelTempoEsgotado;
 
     void Start()
     {
-        CarregarNivel(nivelAtual);
+        tempoRestante = tempoLimite;
+        painelTempoEsgotado.SetActive(false);
     }
 
-    void CarregarNivel(int index)
+    void Update()
     {
-        if (index < niveis.Length)
+        tempoRestante -= Time.deltaTime;
+
+        if (tempoRestante > 0)
         {
-            NivelComOpcoes nivel = niveis[index];
-
-            textoEnunciado.text = nivel.enunciado;
-
-            for (int i = 0; i < botoesResposta.Length; i++)
-            {
-                textosBotoes[i].text = nivel.opcoes[i];
-
-                int capturaIndice = i;
-                botoesResposta[i].onClick.RemoveAllListeners();
-                botoesResposta[i].onClick.AddListener(() => VerificarResposta(capturaIndice));
-            }
+            textoTempo.text = "Tempo: " + Mathf.CeilToInt(tempoRestante).ToString();
         }
         else
         {
-            Debug.Log("Você completou todos os níveis!");
+            textoTempo.text = "Tempo: 0";
+            painelTempoEsgotado.SetActive(true);
+            Time.timeScale = 0f; // pausa o jogo
         }
     }
 
-    public void VerificarResposta(int indiceEscolhido)
+    public void ReiniciarNivel()
     {
-        if (indiceEscolhido == niveis[nivelAtual].indiceRespostaCorreta)
-        {
-            Debug.Log("Resposta correta!");
-            nivelAtual++;
-            CarregarNivel(nivelAtual);
-        }
-        else
-        {
-            Debug.Log("Resposta errada! Tente novamente.");
-        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
+
