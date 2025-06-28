@@ -1,67 +1,82 @@
 fileFormatVersion: 2
-guid: 8faf38f2dc7d32545a9411c808915602
+guid: 78ead640dfc70384291b50d58fa5289b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6060739831708070957
-    second: g2_0
+      213: 1404028623067837608
+    second: Logo_0
   - first:
-      213: 3434851167938845993
-    second: g2_1
+      213: 6795467416601567747
+    second: Logo_1
   - first:
-      213: -3954439174699903597
-    second: g2_2
+      213: 6875538535012287733
+    second: Logo_2
   - first:
-      213: 3084514079261927435
-    second: g2_3
+      213: 2381070441135384947
+    second: Logo_3
   - first:
-      213: -6994896800981145992
-    second: g2_4
+      213: -3774021269495190454
+    second: Logo_4
   - first:
-      213: -676462068661374426
-    second: g2_5
+      213: 6893372319333685202
+    second: Logo_5
   - first:
-      213: 8189154317478396039
-    second: g2_6
+      213: 5409054819110567409
+    second: Logo_6
   - first:
-      213: -726992961858968567
-    second: g2_7
+      213: -5151548511015374267
+    second: Logo_7
   - first:
-      213: 5996346381216702477
-    second: g2_8
+      213: 8618792996653847996
+    second: Logo_8
   - first:
-      213: -4179373219877309
-    second: g2_9
+      213: -8503305437844106070
+    second: Logo_9
   - first:
-      213: -1005573893821243506
-    second: g2_10
+      213: 9156548432191564253
+    second: Logo_10
   - first:
-      213: -3227250900512089296
-    second: g2_11
+      213: -1306304639851798359
+    second: Logo_11
   - first:
-      213: 9172083553775760004
-    second: g2_12
+      213: -1528687246299850986
+    second: Logo_12
   - first:
-      213: -7548152847555995260
-    second: g2_13
+      213: -1453834278069125553
+    second: Logo_13
   - first:
-      213: -6969330684947934343
-    second: g2_14
+      213: -8074770578077153683
+    second: Logo_14
   - first:
-      213: 7394330475775559940
-    second: g2_15
+      213: -6159489392364382447
+    second: Logo_15
   - first:
-      213: 6741700565623604700
-    second: g2_16
+      213: -4536293588464031748
+    second: Logo_16
   - first:
-      213: -8977100312203149161
-    second: g2_17
+      213: -2080403533957981334
+    second: Logo_17
   - first:
-      213: -2336922467430253520
-    second: g2_18
+      213: 4557605079627867692
+    second: Logo_18
   - first:
-      213: -6199604928768663213
-    second: g2_19
+      213: -59867036688880149
+    second: Logo_19
+  - first:
+      213: -6649400525504886364
+    second: Logo_20
+  - first:
+      213: -1043740112008347349
+    second: Logo_21
+  - first:
+      213: 5013402760517276361
+    second: Logo_22
+  - first:
+      213: -1563498650507532718
+    second: Logo_23
+  - first:
+      213: 489527464863182327
+    second: Logo_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,7 +147,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -157,13 +172,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: g2_0
+      name: Logo_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 74
-        width: 71
-        height: 67
+        y: 475
+        width: 217
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3dbcaf6fb3de3eba0800000000000000
-      internalID: -6060739831708070957
+      spriteID: 8a47074089c1c7310800000000000000
+      internalID: 1404028623067837608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_1
+      name: Logo_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 74
-        width: 159
-        height: 64
+        x: 216
+        y: 475
+        width: 221
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92d945940fa0baf20800000000000000
-      internalID: 3434851167938845993
+      spriteID: 30227498c995e4e50800000000000000
+      internalID: 6795467416601567747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_2
+      name: Logo_2
       rect:
         serializedVersion: 2
-        x: 228
-        y: 75
-        width: 36
-        height: 50
+        x: 443
+        y: 477
+        width: 392
+        height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3959f1aa5820f19c0800000000000000
-      internalID: -3954439174699903597
+      spriteID: 5f4cae29ed1da6f50800000000000000
+      internalID: 6875538535012287733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_3
+      name: Logo_3
       rect:
         serializedVersion: 2
-        x: 263
-        y: 74
-        width: 72
-        height: 69
+        x: 824
+        y: 474
+        width: 211
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b08291f66356eca20800000000000000
-      internalID: 3084514079261927435
+      spriteID: 379ae0563f24b0120800000000000000
+      internalID: 2381070441135384947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_4
+      name: Logo_4
       rect:
         serializedVersion: 2
-        x: 344
-        y: 69
-        width: 165
-        height: 138
+        x: 1031
+        y: 479
+        width: 393
+        height: 376
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,20 +275,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 876a0098b622dee90800000000000000
-      internalID: -6994896800981145992
+      spriteID: a4c68f8a6abff9bc0800000000000000
+      internalID: -3774021269495190454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_5
+      name: Logo_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 14
-        width: 25
-        height: 40
+        x: 1432
+        y: 480
+        width: 212
+        height: 292
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,20 +297,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 622b9652559bc96f0800000000000000
-      internalID: -676462068661374426
+      spriteID: 2d7156e0a9d2aaf50800000000000000
+      internalID: 6893372319333685202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_6
+      name: Logo_6
       rect:
         serializedVersion: 2
-        x: 28
-        y: 13
-        width: 29
-        height: 42
+        x: 1649
+        y: 480
+        width: 220
+        height: 405
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7800828b678b5a170800000000000000
-      internalID: 8189154317478396039
+      spriteID: 1fd33b713b2d01b40800000000000000
+      internalID: 5409054819110567409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_7
+      name: Logo_7
       rect:
         serializedVersion: 2
-        x: 61
-        y: 14
-        width: 43
-        height: 40
+        x: 1871
+        y: 475
+        width: 221
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,20 +341,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 904ef22c0c339e5f0800000000000000
-      internalID: -726992961858968567
+      spriteID: 5427cbd5ce50288b0800000000000000
+      internalID: -5151548511015374267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_8
+      name: Logo_8
       rect:
         serializedVersion: 2
-        x: 119
-        y: 14
-        width: 29
-        height: 40
+        x: 2156
+        y: 437
+        width: 1018
+        height: 853
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,20 +363,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d00ee92834d473350800000000000000
-      internalID: 5996346381216702477
+      spriteID: cb55d2ee09a1c9770800000000000000
+      internalID: 8618792996653847996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_9
+      name: Logo_9
       rect:
         serializedVersion: 2
-        x: 151
-        y: 13
-        width: 24
-        height: 41
+        x: 1201
+        y: 95
+        width: 167
+        height: 323
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,20 +385,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34e68d7d1e621fff0800000000000000
-      internalID: -4179373219877309
+      spriteID: aa497a8b1c03ef980800000000000000
+      internalID: -8503305437844106070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_10
+      name: Logo_10
       rect:
         serializedVersion: 2
-        x: 191
-        y: 14
-        width: 29
-        height: 54
+        x: 2593
+        y: 343
+        width: 139
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,20 +407,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8fd06f0fdb7b02f0800000000000000
-      internalID: -1005573893821243506
+      spriteID: dd9207d1948921f70800000000000000
+      internalID: 9156548432191564253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_11
+      name: Logo_11
       rect:
         serializedVersion: 2
-        x: 235
-        y: 13
-        width: 29
-        height: 42
+        x: 4
+        y: 92
+        width: 149
+        height: 239
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,20 +429,130 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03bdae997608633d0800000000000000
-      internalID: -3227250900512089296
+      spriteID: 9a06035e9d21fdde0800000000000000
+      internalID: -1306304639851798359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_12
+      name: Logo_12
       rect:
         serializedVersion: 2
-        x: 268
+        x: 186
+        y: 91
+        width: 166
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61790af7c0309cae0800000000000000
+      internalID: -1528687246299850986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_13
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 95
+        width: 252
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e37654d61f2dbe0800000000000000
+      internalID: -1453834278069125553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_14
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 96
+        width: 167
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d668fe2f0f6a0ff80800000000000000
+      internalID: -8074770578077153683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_15
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 91
+        width: 138
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11795523809158aa0800000000000000
+      internalID: -6159489392364382447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_16
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 91
+        width: 166
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf728bef309db01c0800000000000000
+      internalID: -4536293588464031748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Logo_17
+      rect:
+        serializedVersion: 2
+        x: 1685
         y: 0
-        width: 29
-        height: 54
+        width: 165
+        height: 328
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,20 +561,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 482b1097569c94f70800000000000000
-      internalID: 9172083553775760004
+      spriteID: a6b97f0220ce023e0800000000000000
+      internalID: -2080403533957981334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_13
+      name: Logo_18
       rect:
         serializedVersion: 2
-        x: 298
-        y: 13
-        width: 28
-        height: 41
+        x: 1871
+        y: 89
+        width: 157
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,20 +583,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 489521b1af29f3790800000000000000
-      internalID: -7548152847555995260
+      spriteID: c262cb53caddf3f30800000000000000
+      internalID: 4557605079627867692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_14
+      name: Logo_19
       rect:
         serializedVersion: 2
-        x: 330
-        y: 14
-        width: 23
-        height: 40
+        x: 2070
+        y: 95
+        width: 128
+        height: 235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,20 +605,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973d279caa6f74f90800000000000000
-      internalID: -6969330684947934343
+      spriteID: bed67605f3f4b2ff0800000000000000
+      internalID: -59867036688880149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_15
+      name: Logo_20
       rect:
         serializedVersion: 2
-        x: 352
-        y: 14
-        width: 29
-        height: 40
+        x: 2206
+        y: 96
+        width: 167
+        height: 232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,20 +627,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40982701460fd9660800000000000000
-      internalID: 7394330475775559940
+      spriteID: 4a94cfbb37598b3a0800000000000000
+      internalID: -6649400525504886364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_16
+      name: Logo_21
       rect:
         serializedVersion: 2
-        x: 384
-        y: 13
-        width: 29
-        height: 42
+        x: 2406
+        y: 12
+        width: 149
+        height: 319
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,20 +649,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd58b0402f45f8d50800000000000000
-      internalID: 6741700565623604700
+      spriteID: b218ae9e5e3e381f0800000000000000
+      internalID: -1043740112008347349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_17
+      name: Logo_22
       rect:
         serializedVersion: 2
-        x: 386
-        y: 54
-        width: 24
-        height: 16
+        x: 2582
+        y: 91
+        width: 166
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -546,20 +671,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 790451a24deea6380800000000000000
-      internalID: -8977100312203149161
+      spriteID: 9c25890af3f239540800000000000000
+      internalID: 5013402760517276361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_18
+      name: Logo_23
       rect:
         serializedVersion: 2
-        x: 415
-        y: 13
-        width: 28
-        height: 41
+        x: 2779
+        y: 89
+        width: 158
+        height: 244
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -568,20 +693,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03cb03db565919fd0800000000000000
-      internalID: -2336922467430253520
+      spriteID: 25622b9d2465d4ae0800000000000000
+      internalID: -1563498650507532718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: g2_19
+      name: Logo_24
       rect:
         serializedVersion: 2
-        x: 446
-        y: 13
-        width: 25
-        height: 41
+        x: 2973
+        y: 91
+        width: 137
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,8 +715,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 351abf80a2496f9a0800000000000000
-      internalID: -6199604928768663213
+      spriteID: 7fda7fab2a62bc600800000000000000
+      internalID: 489527464863182327
       vertices: []
       indices: 
       edges: []
@@ -610,26 +735,31 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      g2_0: -6060739831708070957
-      g2_1: 3434851167938845993
-      g2_10: -1005573893821243506
-      g2_11: -3227250900512089296
-      g2_12: 9172083553775760004
-      g2_13: -7548152847555995260
-      g2_14: -6969330684947934343
-      g2_15: 7394330475775559940
-      g2_16: 6741700565623604700
-      g2_17: -8977100312203149161
-      g2_18: -2336922467430253520
-      g2_19: -6199604928768663213
-      g2_2: -3954439174699903597
-      g2_3: 3084514079261927435
-      g2_4: -6994896800981145992
-      g2_5: -676462068661374426
-      g2_6: 8189154317478396039
-      g2_7: -726992961858968567
-      g2_8: 5996346381216702477
-      g2_9: -4179373219877309
+      Logo_0: 1404028623067837608
+      Logo_1: 6795467416601567747
+      Logo_10: 9156548432191564253
+      Logo_11: -1306304639851798359
+      Logo_12: -1528687246299850986
+      Logo_13: -1453834278069125553
+      Logo_14: -8074770578077153683
+      Logo_15: -6159489392364382447
+      Logo_16: -4536293588464031748
+      Logo_17: -2080403533957981334
+      Logo_18: 4557605079627867692
+      Logo_19: -59867036688880149
+      Logo_2: 6875538535012287733
+      Logo_20: -6649400525504886364
+      Logo_21: -1043740112008347349
+      Logo_22: 5013402760517276361
+      Logo_23: -1563498650507532718
+      Logo_24: 489527464863182327
+      Logo_3: 2381070441135384947
+      Logo_4: -3774021269495190454
+      Logo_5: 6893372319333685202
+      Logo_6: 5409054819110567409
+      Logo_7: -5151548511015374267
+      Logo_8: 8618792996653847996
+      Logo_9: -8503305437844106070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
