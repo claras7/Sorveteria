@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 [System.Serializable]
 public class Pergunta
@@ -20,23 +21,27 @@ public class FaseManager : MonoBehaviour
     public TextMeshProUGUI[] textosRespostas;
     public TextMeshProUGUI textoTempo;
     public TextMeshProUGUI textoPontuacao;
-
     public GameObject painelTempoEsgotado;
     public GameObject painelErro;
 
     [Header("Configurações do jogo")]
     public float tempoLimite = 30f;
     private float tempoRestante;
+    private float tempoTotalGasto = 0f;
+
     private int faseAtual = 0;
     private int pontuacao = 0;
     private bool faseAtiva = true;
+    private Coroutine coroutineErro;
 
     void Start()
     {
         Time.timeScale = 1f;
         if (painelTempoEsgotado != null) painelTempoEsgotado.SetActive(false);
         if (painelErro != null) painelErro.SetActive(false);
+
         pontuacao = 0;
+        tempoTotalGasto = 0f;
         IniciarFase();
         AtualizarPontuacao();
     }
@@ -50,11 +55,11 @@ public class FaseManager : MonoBehaviour
 
         if (tempoRestante > 0)
         {
-            textoTempo.text = "Tempo: " + Mathf.CeilToInt(tempoRestante).ToString();
+            textoTempo.text = Mathf.CeilToInt(tempoRestante).ToString();
         }
         else
         {
-            textoTempo.text = "Tempo: 0";
+            textoTempo.text = "0";
             faseAtiva = false;
             painelTempoEsgotado.SetActive(true);
             Time.timeScale = 0f;
@@ -70,7 +75,8 @@ public class FaseManager : MonoBehaviour
         if (faseAtual >= perguntas.Length)
         {
             Debug.Log("Parabéns! Você terminou todas as fases.");
-            // Aqui você pode mostrar uma tela de fim de jogo, pontuação final etc.
+            Debug.Log("Pontuação final: " + pontuacao);
+            Debug.Log("Tempo total: " + Mathf.RoundToInt(tempoTotalGasto) + " segundos");
             return;
         }
 
@@ -83,9 +89,18 @@ public class FaseManager : MonoBehaviour
     {
         if (!faseAtiva) return;
 
+        faseAtiva = false;
+
+        float tempoGastoNaFase = tempoLimite - tempoRestante;
+        tempoTotalGasto += tempoGastoNaFase;
+
         if (indiceEscolhido == perguntas[faseAtual].indiceRespostaCorreta)
         {
-            pontuacao += 10; // adiciona 10 pontos por acerto
+            if (tempoGastoNaFase <= tempoLimite)
+                pontuacao += 10;
+            else
+                pontuacao += 5;
+
             AtualizarPontuacao();
 
             faseAtual++;
@@ -93,19 +108,32 @@ public class FaseManager : MonoBehaviour
         }
         else
         {
-            // Errou, mostra painel de erro e pausa
-            faseAtiva = false;
             painelErro.SetActive(true);
             Time.timeScale = 0f;
+
+            // Inicia contagem automática para pular fase
+            coroutineErro = StartCoroutine(AutoContinuarDepoisErro(3f));
         }
     }
 
     public void ContinuarDepoisErro()
     {
+        if (coroutineErro != null)
+        {
+            StopCoroutine(coroutineErro);
+            coroutineErro = null;
+        }
+
         painelErro.SetActive(false);
         Time.timeScale = 1f;
         faseAtual++;
         IniciarFase();
+    }
+
+    IEnumerator AutoContinuarDepoisErro(float segundos)
+    {
+        yield return new WaitForSecondsRealtime(segundos); // Espera real mesmo com Time.timeScale = 0
+        ContinuarDepoisErro();
     }
 
     void AtualizarUI()
@@ -123,7 +151,7 @@ public class FaseManager : MonoBehaviour
 
     void AtualizarPontuacao()
     {
-        textoPontuacao.text = "Pontuação: " + pontuacao;
+        textoPontuacao.text = " " + pontuacao;
     }
 
     public void ReiniciarNivel()
