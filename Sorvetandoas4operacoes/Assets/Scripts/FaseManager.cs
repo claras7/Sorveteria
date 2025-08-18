@@ -2,14 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
-
-[System.Serializable]
-public class Pergunta
-{
-    public string enunciado;
-    public string[] respostas = new string[4];
-    public int indiceRespostaCorreta;
-}
+using UnityEngine.UI;
 
 public class FaseManager : MonoBehaviour
 {
@@ -23,6 +16,7 @@ public class FaseManager : MonoBehaviour
     public TextMeshProUGUI textoPontuacao;
     public GameObject painelTempoEsgotado;
     public GameObject painelErro;
+    public TextMeshProUGUI textoOperador; // operador no meio da tela
 
     [Header("Configurações do jogo")]
     public float tempoLimite = 30f;
@@ -33,6 +27,12 @@ public class FaseManager : MonoBehaviour
     private int pontuacao = 0;
     private bool faseAtiva = true;
     private Coroutine coroutineErro;
+
+    [Header("Sorvetes Dinâmicos")]
+    public GameObject prefabSorvete;    // Prefab do sorvete (Image + Text)
+    public Transform grupoEsquerdo;     // Painel do grupo esquerdo
+    public Transform grupoDireito;      // Painel do grupo direito
+    public int maxLinhas = 3;           // Máximo de linhas antes de usar "xN"
 
     void Start()
     {
@@ -54,9 +54,7 @@ public class FaseManager : MonoBehaviour
         tempoRestante -= Time.deltaTime;
 
         if (tempoRestante > 0)
-        {
             textoTempo.text = Mathf.CeilToInt(tempoRestante).ToString();
-        }
         else
         {
             textoTempo.text = "0";
@@ -90,19 +88,13 @@ public class FaseManager : MonoBehaviour
         if (!faseAtiva) return;
 
         faseAtiva = false;
-
         float tempoGastoNaFase = tempoLimite - tempoRestante;
         tempoTotalGasto += tempoGastoNaFase;
 
         if (indiceEscolhido == perguntas[faseAtual].indiceRespostaCorreta)
         {
-            if (tempoGastoNaFase <= tempoLimite)
-                pontuacao += 10;
-            else
-                pontuacao += 5;
-
+            pontuacao += tempoGastoNaFase <= tempoLimite ? 10 : 5;
             AtualizarPontuacao();
-
             faseAtual++;
             IniciarFase();
         }
@@ -110,8 +102,6 @@ public class FaseManager : MonoBehaviour
         {
             painelErro.SetActive(true);
             Time.timeScale = 0f;
-
-            // Inicia contagem automática para pular fase
             coroutineErro = StartCoroutine(AutoContinuarDepoisErro(3f));
         }
     }
@@ -132,7 +122,7 @@ public class FaseManager : MonoBehaviour
 
     IEnumerator AutoContinuarDepoisErro(float segundos)
     {
-        yield return new WaitForSecondsRealtime(segundos); // Espera real mesmo com Time.timeScale = 0
+        yield return new WaitForSecondsRealtime(segundos);
         ContinuarDepoisErro();
     }
 
@@ -140,12 +130,85 @@ public class FaseManager : MonoBehaviour
     {
         if (faseAtual < perguntas.Length)
         {
-            textoEnunciado.text = perguntas[faseAtual].enunciado;
+            Pergunta perguntaAtual = perguntas[faseAtual];
+
+            textoEnunciado.text = perguntaAtual.enunciado;
 
             for (int i = 0; i < textosRespostas.Length; i++)
+                textosRespostas[i].text = perguntaAtual.respostas[i];
+
+            // Atualiza o operador no meio
+            if (textoOperador != null)
+                textoOperador.text = perguntaAtual.operador;
+
+            // Cria sorvetes de cada lado
+            MostrarSorvetes(perguntaAtual.quantidadeSorveteEsquerda, perguntaAtual.spriteSorveteEsquerdo, grupoEsquerdo);
+            MostrarSorvetes(perguntaAtual.quantidadeSorveteDireita, perguntaAtual.spriteSorveteDireito, grupoDireito);
+        }
+    }
+
+    void MostrarSorvetes(int qtde, Sprite sprite, Transform grupo)
+    {
+        // Limpa antigos
+        foreach (Transform child in grupo)
+            Destroy(child.gameObject);
+
+        RectTransform rtGrupo = grupo.GetComponent<RectTransform>();
+        float larguraPainel = rtGrupo.rect.width;
+        float alturaPainel = rtGrupo.rect.height;
+
+        RectTransform rtPrefab = prefabSorvete.GetComponent<RectTransform>();
+        float larguraSorvete = rtPrefab.rect.width;
+        float alturaSorvete = rtPrefab.rect.height;
+
+        // Calcula colunas e linhas necessárias
+        int colunas = Mathf.FloorToInt(larguraPainel / larguraSorvete);
+        if (colunas < 1) colunas = 1;
+        int linhas = Mathf.CeilToInt((float)qtde / colunas);
+
+        // Se linhas excederem maxLinhas, mostra apenas "xN"
+        if (linhas > maxLinhas)
+        {
+            GameObject novo = Instantiate(prefabSorvete, grupo);
+            Image img = novo.GetComponent<Image>();
+            img.sprite = sprite;
+
+            TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
+            if (txt != null)
             {
-                textosRespostas[i].text = perguntas[faseAtual].respostas[i];
+                txt.gameObject.SetActive(true);
+                txt.text = "x" + qtde;
             }
+            return;
+        }
+
+        // Ajusta escala para caber verticalmente
+        float escalaY = 1f;
+        float alturaNecessaria = linhas * alturaSorvete;
+        if (alturaNecessaria > alturaPainel)
+            escalaY = alturaPainel / alturaNecessaria;
+
+        // Instancia sorvetes em grid
+        for (int i = 0; i < qtde; i++)
+        {
+            int linha = i / colunas;
+            int coluna = i % colunas;
+
+            GameObject novo = Instantiate(prefabSorvete, grupo);
+            Image img = novo.GetComponent<Image>();
+            img.sprite = sprite;
+
+            RectTransform rt = novo.GetComponent<RectTransform>();
+            rt.localScale = new Vector3(escalaY, escalaY, 1f);
+
+            float x = coluna * larguraSorvete * escalaY;
+            float y = -linha * alturaSorvete * escalaY;
+            rt.anchoredPosition = new Vector2(x, y);
+
+            // Desativa texto "xN"
+            TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
+            if (txt != null)
+                txt.gameObject.SetActive(false);
         }
     }
 
