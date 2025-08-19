@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perguntas:
-  - enunciado: "Quantos sorvetes h\xE1 no total?"
+  - enunciado: 2 pedidos de 2 sorvetes cada
     respostas:
     - 3
     - 5
