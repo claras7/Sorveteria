@@ -168,19 +168,23 @@ public class FaseManager : MonoBehaviour
 
         // Se linhas excederem maxLinhas, mostra apenas "xN"
         if (linhas > maxLinhas)
-        {
-            GameObject novo = Instantiate(prefabSorvete, grupo);
-            Image img = novo.GetComponent<Image>();
-            img.sprite = sprite;
+    {
+    GameObject novo = Instantiate(prefabSorvete, grupo);
+    Image img = novo.GetComponent<Image>();
+    img.sprite = sprite;
 
-            TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
-            if (txt != null)
-            {
-                txt.gameObject.SetActive(true);
-                txt.text = "x" + qtde;
-            }
-            return;
-        }
+    RectTransform rt = novo.GetComponent<RectTransform>();
+    rt.localScale = Vector3.one; // 👈 força tamanho normal (sem encolher)
+
+    TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
+    if (txt != null)
+    {
+        txt.gameObject.SetActive(true);
+        txt.text = "x" + qtde;
+    }
+    return;
+    }
+
 
         // Ajusta escala para caber verticalmente
         float escalaY = 1f;
