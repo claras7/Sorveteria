@@ -415,66 +415,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perguntas:
-  - enunciado: Alguns sorvetes foram vendidos. Quantos sobraram?
+  - enunciado: 6 sorvetes para dividir entre 2 amigos.
     respostas:
-    - 3
-    - 5
     - 6
-    - 2
-    indiceRespostaCorreta: 3
-    quantidadeSorveteEsquerda: 4
-    quantidadeSorveteDireita: 2
-    spriteSorveteEsquerdo: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
-    spriteSorveteDireito: {fileID: 21300000, guid: bd91720caf2a213429a07648446e9c92, type: 3}
-    operador: '-'
-  - enunciado: "Veja quantos restaram ap\xF3s a venda."
-    respostas:
     - 8
-    - 4
-    - 7
+    - 2
     - 3
-    indiceRespostaCorreta: 1
+    indiceRespostaCorreta: 3
     quantidadeSorveteEsquerda: 6
     quantidadeSorveteDireita: 2
     spriteSorveteEsquerdo: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
-    spriteSorveteDireito: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
-    operador: '-'
-  - enunciado: "Um pedido de 5 sorvetes, 2 j\xE1 foram."
+    spriteSorveteDireito: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
+    operador: '%'
+  - enunciado: 4 sorvetes para dividir entre 2 pessoas.
     respostas:
-    - 0
-    - 3
-    - 5
     - 8
-    indiceRespostaCorreta: 1
-    quantidadeSorveteEsquerda: 5
-    quantidadeSorveteDireita: 2
-    spriteSorveteEsquerdo: {fileID: 21300000, guid: bd91720caf2a213429a07648446e9c92, type: 3}
-    spriteSorveteDireito: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
-    operador: '-'
-  - enunciado: "Um pedido de 6 sorvetes, 4 j\xE1 foram."
-    respostas:
-    - 14
-    - 5
-    - 10
     - 2
-    indiceRespostaCorreta: 3
-    quantidadeSorveteEsquerda: 5
+    - 6
+    - 1
+    indiceRespostaCorreta: 1
+    quantidadeSorveteEsquerda: 4
     quantidadeSorveteDireita: 2
-    spriteSorveteEsquerdo: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
-    spriteSorveteDireito: {fileID: 21300000, guid: bd91720caf2a213429a07648446e9c92, type: 3}
-    operador: '-'
-  - enunciado: "Um pedido de 5 sorvetes, 5 j\xE1 foram."
+    spriteSorveteEsquerdo: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
+    spriteSorveteDireito: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
+    operador: '%'
+  - enunciado: 6 sorvetes para dividir entre 3 pessoas
+    respostas:
+    - 9
+    - 18
+    - 2
+    - 3
+    indiceRespostaCorreta: 2
+    quantidadeSorveteEsquerda: 6
+    quantidadeSorveteDireita: 3
+    spriteSorveteEsquerdo: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
+    spriteSorveteDireito: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
+    operador: '%'
+  - enunciado: 4 sorvetes para dividir entre 4 pessoas.
     respostas:
     - 10
+    - 8
+    - 16
     - 1
-    - 0
-    - 15
-    indiceRespostaCorreta: 2
-    quantidadeSorveteEsquerda: 5
-    quantidadeSorveteDireita: 2
+    indiceRespostaCorreta: 3
+    quantidadeSorveteEsquerda: 4
+    quantidadeSorveteDireita: 4
     spriteSorveteEsquerdo: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
-    spriteSorveteDireito: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
-    operador: '-'
+    spriteSorveteDireito: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
+    operador: '%'
+  - enunciado: 6 sorvetes para dividir entre 6 amigos.
+    respostas:
+    - 10
+    - 8
+    - 16
+    - 1
+    indiceRespostaCorreta: 1
+    quantidadeSorveteEsquerda: 6
+    quantidadeSorveteDireita: 6
+    spriteSorveteEsquerdo: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
+    spriteSorveteDireito: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
+    operador: '%'
   textoEnunciado: {fileID: 1719026457}
   textosRespostas:
   - {fileID: 576194727}

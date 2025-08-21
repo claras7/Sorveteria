@@ -427,7 +427,7 @@ MonoBehaviour:
     spriteSorveteEsquerdo: {fileID: 21300000, guid: bd91720caf2a213429a07648446e9c92, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
     operador: x
-  - enunciado: Quantos tem no total?
+  - enunciado: 2 pedidos de 3 sorvetes cada.
     respostas:
     - 6
     - 1
@@ -439,7 +439,7 @@ MonoBehaviour:
     spriteSorveteEsquerdo: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
     operador: x
-  - enunciado: Quantos tem no total?
+  - enunciado: 3 pedidos de 1 sorvetes cada.
     respostas:
     - 3
     - 5
@@ -451,7 +451,7 @@ MonoBehaviour:
     spriteSorveteEsquerdo: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: bd91720caf2a213429a07648446e9c92, type: 3}
     operador: x
-  - enunciado: Quantos tem no total?
+  - enunciado: 4 pedidos de 4 sorvetes cada.
     respostas:
     - 26
     - 20
@@ -463,7 +463,7 @@ MonoBehaviour:
     spriteSorveteEsquerdo: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
     operador: x
-  - enunciado: Quantos tem no total?
+  - enunciado: 6 pedidos de 5 sorvetes cada.
     respostas:
     - 11
     - 15
