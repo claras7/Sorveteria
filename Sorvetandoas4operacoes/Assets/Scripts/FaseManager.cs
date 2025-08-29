@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO;
 
 public class FaseManager : MonoBehaviour
 {
@@ -12,16 +13,15 @@ public class FaseManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI textoEnunciado;
     public TextMeshProUGUI[] textosRespostas;
-    public TextMeshProUGUI textoTempo;
+    public TextMeshProUGUI textoTempo;       // tempo da fase atual
+    public TextMeshProUGUI textoTempoTotal;  // tempo acumulado total
     public TextMeshProUGUI textoPontuacao;
-    public GameObject painelTempoEsgotado;
     public GameObject painelErro;
-    public TextMeshProUGUI textoOperador; // operador no meio da tela
+    public TextMeshProUGUI textoOperador;    // operador no meio da tela
 
     [Header("Configurações do jogo")]
-    public float tempoLimite = 30f;
-    private float tempoRestante;
-    private float tempoTotalGasto = 0f;
+    private float tempoDecorrido = 0f;       // tempo da fase atual
+    private float tempoTotalGasto = 0f;      // tempo total acumulado
 
     private int faseAtual = 0;
     private int pontuacao = 0;
@@ -29,58 +29,79 @@ public class FaseManager : MonoBehaviour
     private Coroutine coroutineErro;
 
     [Header("Sorvetes Dinâmicos")]
-    public GameObject prefabSorvete;    // Prefab do sorvete (Image + Text)
-    public Transform grupoEsquerdo;     // Painel do grupo esquerdo
-    public Transform grupoDireito;      // Painel do grupo direito
-    public int maxLinhas = 3;           // Máximo de linhas antes de usar "xN"
+    public GameObject prefabSorvete;    
+    public Transform grupoEsquerdo;     
+    public Transform grupoDireito;      
+    public int maxLinhas = 3;           
+
+    [Header("Configurações de fases")]
+    public string proximaCena; // aqui você coloca o nome da próxima cena da fase
 
     void Start()
     {
         Time.timeScale = 1f;
-        if (painelTempoEsgotado != null) painelTempoEsgotado.SetActive(false);
         if (painelErro != null) painelErro.SetActive(false);
 
+        // Inicializa valores do jogo (sempre do zero)
         pontuacao = 0;
         tempoTotalGasto = 0f;
+
         IniciarFase();
         AtualizarPontuacao();
     }
 
     void Update()
     {
-        if (!faseAtiva || painelTempoEsgotado.activeSelf || painelErro.activeSelf)
+        if (!faseAtiva || painelErro.activeSelf)
             return;
 
-        tempoRestante -= Time.deltaTime;
+        // Atualiza tempo da fase atual
+        tempoDecorrido += Time.deltaTime;
+        if (textoTempo != null)
+            textoTempo.text = Mathf.FloorToInt(tempoDecorrido).ToString();
 
-        if (tempoRestante > 0)
-            textoTempo.text = Mathf.CeilToInt(tempoRestante).ToString();
-        else
+        // Atualiza tempo total acumulado
+        if (textoTempoTotal != null)
         {
-            textoTempo.text = "0";
-            faseAtiva = false;
-            painelTempoEsgotado.SetActive(true);
-            Time.timeScale = 0f;
+            int tempoTotalInt = Mathf.FloorToInt(tempoTotalGasto + tempoDecorrido);
+            int minutos = tempoTotalInt / 60;
+            int segundos = tempoTotalInt % 60;
+            textoTempoTotal.text = string.Format("{0:00}:{1:00}", minutos, segundos);
         }
     }
 
     void IniciarFase()
     {
         Time.timeScale = 1f;
-        painelTempoEsgotado.SetActive(false);
         painelErro.SetActive(false);
 
         if (faseAtual >= perguntas.Length)
         {
-            Debug.Log("Parabéns! Você terminou todas as fases.");
-            Debug.Log("Pontuação final: " + pontuacao);
-            Debug.Log("Tempo total: " + Mathf.RoundToInt(tempoTotalGasto) + " segundos");
+            // Fim da fase → ir para a próxima cena
+            Debug.Log("Fim da fase atual.");
+            SalvarResultados();
+            if (!string.IsNullOrEmpty(proximaCena))
+                SceneManager.LoadScene(proximaCena);
             return;
         }
 
-        tempoRestante = tempoLimite;
         faseAtiva = true;
+        tempoDecorrido = 0f;
         AtualizarUI();
+    }
+
+    void SalvarResultados()
+    {
+        // Salva em arquivo
+        string caminho = Application.persistentDataPath + "/resultados.txt";
+        string conteudo = $"Pontuação atual: {pontuacao}\nTempo total: {Mathf.RoundToInt(tempoTotalGasto + tempoDecorrido)} segundos\nData: {System.DateTime.Now}\n----------------\n";
+        File.AppendAllText(caminho, conteudo);
+        Debug.Log("Resultados salvos em: " + caminho);
+
+        // Salva PlayerPrefs
+        PlayerPrefs.SetInt("PontuacaoTotal", pontuacao);
+        PlayerPrefs.SetFloat("TempoTotal", tempoTotalGasto + tempoDecorrido);
+        PlayerPrefs.Save();
     }
 
     public void VerificarResposta(int indiceEscolhido)
@@ -88,12 +109,13 @@ public class FaseManager : MonoBehaviour
         if (!faseAtiva) return;
 
         faseAtiva = false;
-        float tempoGastoNaFase = tempoLimite - tempoRestante;
+
+        float tempoGastoNaFase = tempoDecorrido;
         tempoTotalGasto += tempoGastoNaFase;
 
         if (indiceEscolhido == perguntas[faseAtual].indiceRespostaCorreta)
         {
-            pontuacao += tempoGastoNaFase <= tempoLimite ? 10 : 5;
+            pontuacao += 1; // pontuação fixa por acerto
             AtualizarPontuacao();
             faseAtual++;
             IniciarFase();
@@ -102,8 +124,14 @@ public class FaseManager : MonoBehaviour
         {
             painelErro.SetActive(true);
             Time.timeScale = 0f;
-            coroutineErro = StartCoroutine(AutoContinuarDepoisErro(3f));
+            coroutineErro = StartCoroutine(AutoContinuarDepoisErro(2f)); // continua automaticamente
         }
+    }
+
+    IEnumerator AutoContinuarDepoisErro(float segundos)
+    {
+        yield return new WaitForSecondsRealtime(segundos);
+        ContinuarDepoisErro();
     }
 
     public void ContinuarDepoisErro()
@@ -120,12 +148,6 @@ public class FaseManager : MonoBehaviour
         IniciarFase();
     }
 
-    IEnumerator AutoContinuarDepoisErro(float segundos)
-    {
-        yield return new WaitForSecondsRealtime(segundos);
-        ContinuarDepoisErro();
-    }
-
     void AtualizarUI()
     {
         if (faseAtual < perguntas.Length)
@@ -137,11 +159,9 @@ public class FaseManager : MonoBehaviour
             for (int i = 0; i < textosRespostas.Length; i++)
                 textosRespostas[i].text = perguntaAtual.respostas[i];
 
-            // Atualiza o operador no meio
             if (textoOperador != null)
                 textoOperador.text = perguntaAtual.operador;
 
-            // Cria sorvetes de cada lado
             MostrarSorvetes(perguntaAtual.quantidadeSorveteEsquerda, perguntaAtual.spriteSorveteEsquerdo, grupoEsquerdo);
             MostrarSorvetes(perguntaAtual.quantidadeSorveteDireita, perguntaAtual.spriteSorveteDireito, grupoDireito);
         }
@@ -149,7 +169,6 @@ public class FaseManager : MonoBehaviour
 
     void MostrarSorvetes(int qtde, Sprite sprite, Transform grupo)
     {
-        // Limpa antigos
         foreach (Transform child in grupo)
             Destroy(child.gameObject);
 
@@ -161,38 +180,33 @@ public class FaseManager : MonoBehaviour
         float larguraSorvete = rtPrefab.rect.width;
         float alturaSorvete = rtPrefab.rect.height;
 
-        // Calcula colunas e linhas necessárias
         int colunas = Mathf.FloorToInt(larguraPainel / larguraSorvete);
         if (colunas < 1) colunas = 1;
         int linhas = Mathf.CeilToInt((float)qtde / colunas);
 
-        // Se linhas excederem maxLinhas, mostra apenas "xN"
         if (linhas > maxLinhas)
-    {
-    GameObject novo = Instantiate(prefabSorvete, grupo);
-    Image img = novo.GetComponent<Image>();
-    img.sprite = sprite;
+        {
+            GameObject novo = Instantiate(prefabSorvete, grupo);
+            Image img = novo.GetComponent<Image>();
+            img.sprite = sprite;
 
-    RectTransform rt = novo.GetComponent<RectTransform>();
-    rt.localScale = Vector3.one; // 👈 força tamanho normal (sem encolher)
+            RectTransform rt = novo.GetComponent<RectTransform>();
+            rt.localScale = Vector3.one;
 
-    TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
-    if (txt != null)
-    {
-        txt.gameObject.SetActive(true);
-        txt.text = "x" + qtde;
-    }
-    return;
-    }
+            TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
+            if (txt != null)
+            {
+                txt.gameObject.SetActive(true);
+                txt.text = "x" + qtde;
+            }
+            return;
+        }
 
-
-        // Ajusta escala para caber verticalmente
         float escalaY = 1f;
         float alturaNecessaria = linhas * alturaSorvete;
         if (alturaNecessaria > alturaPainel)
             escalaY = alturaPainel / alturaNecessaria;
 
-        // Instancia sorvetes em grid
         for (int i = 0; i < qtde; i++)
         {
             int linha = i / colunas;
@@ -209,7 +223,6 @@ public class FaseManager : MonoBehaviour
             float y = -linha * alturaSorvete * escalaY;
             rt.anchoredPosition = new Vector2(x, y);
 
-            // Desativa texto "xN"
             TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
             if (txt != null)
                 txt.gameObject.SetActive(false);
