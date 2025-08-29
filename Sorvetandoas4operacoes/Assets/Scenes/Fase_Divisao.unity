@@ -306,27 +306,27 @@ MonoBehaviour:
     spriteSorveteEsquerdo: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
     operador: '%'
-  - enunciado: 6 sorvetes para dividir entre 3 pessoas
+  - enunciado: 4 sorvetes para dividir entre 4 pessoas.
     respostas:
-    - 9
+    - 1
     - 18
     - 2
     - 3
-    indiceRespostaCorreta: 2
+    indiceRespostaCorreta: 0
     quantidadeSorveteEsquerda: 6
-    quantidadeSorveteDireita: 3
+    quantidadeSorveteDireita: 6
     spriteSorveteEsquerdo: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
     operador: '%'
-  - enunciado: 4 sorvetes para dividir entre 4 pessoas.
+  - enunciado: 6 sorvetes para dividir entre 2 pessoas.
     respostas:
     - 10
     - 8
     - 16
-    - 1
+    - 3
     indiceRespostaCorreta: 3
-    quantidadeSorveteEsquerda: 4
-    quantidadeSorveteDireita: 4
+    quantidadeSorveteEsquerda: 6
+    quantidadeSorveteDireita: 2
     spriteSorveteEsquerdo: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
     operador: '%'
@@ -349,15 +349,14 @@ MonoBehaviour:
   - {fileID: 1589403937}
   - {fileID: 2141660843}
   textoTempo: {fileID: 1939196916}
-  textoTempoTotal: {fileID: 1939196916}
   textoPontuacao: {fileID: 941203766}
   painelErro: {fileID: 962539070}
   textoOperador: {fileID: 522803494}
   prefabSorvete: {fileID: 7049571437193350826, guid: 4cd2433886c831745aa0978ec4e90503, type: 3}
   grupoEsquerdo: {fileID: 524120335}
   grupoDireito: {fileID: 1476957287}
-  maxLinhas: 3
   proximaCena: TelaFinal
+  tipoFase: Divisao
 --- !u!4 &178539299
 Transform:
   m_ObjectHideFlags: 0

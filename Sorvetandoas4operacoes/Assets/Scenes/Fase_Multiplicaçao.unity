@@ -349,15 +349,14 @@ MonoBehaviour:
   - {fileID: 1589403937}
   - {fileID: 2141660843}
   textoTempo: {fileID: 1939196916}
-  textoTempoTotal: {fileID: 1939196916}
   textoPontuacao: {fileID: 941203766}
   painelErro: {fileID: 962539070}
   textoOperador: {fileID: 522803494}
   prefabSorvete: {fileID: 7049571437193350826, guid: 4cd2433886c831745aa0978ec4e90503, type: 3}
   grupoEsquerdo: {fileID: 524120335}
   grupoDireito: {fileID: 1476957287}
-  maxLinhas: 3
   proximaCena: Fase_Divisao
+  tipoFase: Multiplicacao
 --- !u!4 &178539299
 Transform:
   m_ObjectHideFlags: 0

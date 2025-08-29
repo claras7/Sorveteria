@@ -250,10 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fe0765020e67c4abe953cbcc5296ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoPontuacao: {fileID: 864043214}
+  textoMensagem: {fileID: 864043214}
+  textoAcertos: {fileID: 580005492}
   textoTempo: {fileID: 984126351}
-  textoAcertos: {fileID: 0}
-  textoArquivo: {fileID: 0}
 --- !u!1001 &211171611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,8 +493,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.955, y: 125.6}
-  m_SizeDelta: {x: 899.7001, y: 153.8011}
+  m_AnchoredPosition: {x: -7, y: -44.199}
+  m_SizeDelta: {x: 1234.5841, y: 153.8011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580005492
 MonoBehaviour:
@@ -676,7 +675,7 @@ GameObject:
   - component: {fileID: 864043215}
   - component: {fileID: 864043214}
   m_Layer: 5
-  m_Name: "Pontua\xE7ao"
+  m_Name: Mensagem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,8 +697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.955, y: -28.199}
-  m_SizeDelta: {x: 899.7001, y: 153.8011}
+  m_AnchoredPosition: {x: 0, y: 109.6}
+  m_SizeDelta: {x: 1360.0519, y: 153.8011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864043214
 MonoBehaviour:
@@ -834,8 +833,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.955, y: -182}
-  m_SizeDelta: {x: 899.7001, y: 153.8011}
+  m_AnchoredPosition: {x: -7, y: -267}
+  m_SizeDelta: {x: 1234.5841, y: 153.8011}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984126351
 MonoBehaviour:
