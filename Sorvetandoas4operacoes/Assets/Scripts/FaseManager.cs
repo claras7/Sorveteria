@@ -114,22 +114,30 @@ public class FaseManager : MonoBehaviour
         }
     }
 
+   
     void MostrarSorvetes(int qtde, Sprite sprite, Transform grupo)
+{
+    // Garante que o Grid Layout seja atualizado corretamente
+    LayoutRebuilder.ForceRebuildLayoutImmediate(grupo.GetComponent<RectTransform>());
+
+    foreach (Transform child in grupo)
+        Destroy(child.gameObject);
+
+    for (int i = 0; i < qtde; i++)
     {
-        foreach (Transform child in grupo)
-            Destroy(child.gameObject);
+        GameObject novo = Instantiate(prefabSorvete, grupo);
+        Image img = novo.GetComponent<Image>();
+        img.sprite = sprite;
 
-        for (int i = 0; i < qtde; i++)
-        {
-            GameObject novo = Instantiate(prefabSorvete, grupo);
-            Image img = novo.GetComponent<Image>();
-            img.sprite = sprite;
-
-            TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
-            if (txt != null)
-                txt.gameObject.SetActive(false);
-        }
+        TextMeshProUGUI txt = novo.GetComponentInChildren<TextMeshProUGUI>();
+        if (txt != null)
+            txt.gameObject.SetActive(false);
     }
+
+    // Força o Unity a reposicionar os novos itens no grid
+    LayoutRebuilder.ForceRebuildLayoutImmediate(grupo.GetComponent<RectTransform>());
+}
+
 
     void AtualizarPontuacao()
     {
