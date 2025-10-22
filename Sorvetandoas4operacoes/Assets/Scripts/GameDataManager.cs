@@ -25,9 +25,8 @@ public class GameDataManager : MonoBehaviour
         }
     }
 
-    /// <summary>
+    
     /// Salva os acertos de cada fase.
-    /// </summary>
     public void SalvarFase(string tipoFase, int acertos)
     {
         switch (tipoFase)
@@ -52,9 +51,8 @@ public class GameDataManager : MonoBehaviour
         Debug.Log($"Fase {tipoFase} salva: {acertos} acertos | Tempo total: {tempoTotal:F1}s");
     }
 
-    /// <summary>
+    
     /// Reseta todos os dados do jogo para uma nova jogada.
-    /// </summary>
     public void ResetarDados()
     {
         tempoTotal = 0f;
@@ -64,19 +62,21 @@ public class GameDataManager : MonoBehaviour
         acertosDivisao = 0;
     }
 
-    /// <summary>
-    /// Salva resultados em arquivo opcional (persistentDataPath)
-    /// </summary>
+    
+    /// Salva resultados em arquivo.
     public void SalvarEmArquivo()
     {
         string caminho = Application.persistentDataPath + "/resultados.txt";
+        string dataHora = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         string conteudo =
             $"Acertos:\n" +
             $"Adição: {acertosAdicao}/5\n" +
             $"Subtração: {acertosSubtracao}/5\n" +
             $"Multiplicação: {acertosMultiplicacao}/5\n" +
             $"Divisão: {acertosDivisao}/5\n" +
-            $"Tempo total: {Mathf.RoundToInt(tempoTotal)} segundos\n\n";
+            $"Tempo total: {Mathf.RoundToInt(tempoTotal)} segundos\n\n" +
+            $"Data: {dataHora}\n"+
+            "-----------------------\n\n";
 
         System.IO.File.AppendAllText(caminho, conteudo);
         Debug.Log("Resultados salvos em arquivo: " + caminho);

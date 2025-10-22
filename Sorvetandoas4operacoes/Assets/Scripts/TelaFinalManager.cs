@@ -37,13 +37,21 @@ public class TelaFinalManager : MonoBehaviour
 
     public void JogarNovamente()
     {
+        // Reseta os dados do jogo
         GameDataManager.Instance.ResetarDados();
+
+        // Carrega o menu principal
         SceneManager.LoadScene("MenuPrincipal");
     }
 
     public void SairDoJogo()
     {
-        Application.Quit();
         Debug.Log("Jogo encerrado");
+
+        // Salva o progresso antes de sair
+        GameDataManager.Instance.SalvarEmArquivo();
+
+        // Fecha o jogo na build
+        Application.Quit();
     }
 }
