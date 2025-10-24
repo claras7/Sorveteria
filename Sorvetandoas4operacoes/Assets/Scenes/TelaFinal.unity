@@ -355,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -364,30 +364,30 @@ PrefabInstance:
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 165561878}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 165561878}
+      objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SalvarEmArquivo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SairDoJogo
       objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SalvarEmArquivo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameDataManager, Assembly-CSharp
+      value: TelaFinalManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: TelaFinalManager, Assembly-CSharp
+      value: GameDataManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6835214389028407253, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

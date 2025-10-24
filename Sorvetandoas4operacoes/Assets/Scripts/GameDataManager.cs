@@ -4,8 +4,9 @@ public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager Instance;
 
-    [Header("Cronômetro e Acertos")]
-    public float tempoTotal = 0f; // cronômetro contínuo
+    [Header("Dados do Jogo")]
+    public string nomeJogador = ""; 
+    public float tempoTotal = 0f;  
     public int acertosAdicao = 0;
     public int acertosSubtracao = 0;
     public int acertosMultiplicacao = 0;
@@ -13,7 +14,6 @@ public class GameDataManager : MonoBehaviour
 
     private void Awake()
     {
-        
         if (Instance == null)
         {
             Instance = this;
@@ -27,6 +27,7 @@ public class GameDataManager : MonoBehaviour
 
     
     /// Salva os acertos de cada fase.
+    
     public void SalvarFase(string tipoFase, int acertos)
     {
         switch (tipoFase)
@@ -51,7 +52,7 @@ public class GameDataManager : MonoBehaviour
         Debug.Log($"Fase {tipoFase} salva: {acertos} acertos | Tempo total: {tempoTotal:F1}s");
     }
 
-    
+   
     /// Reseta todos os dados do jogo para uma nova jogada.
     public void ResetarDados()
     {
@@ -60,25 +61,36 @@ public class GameDataManager : MonoBehaviour
         acertosSubtracao = 0;
         acertosMultiplicacao = 0;
         acertosDivisao = 0;
+        nomeJogador = "";
     }
 
-    
     /// Salva resultados em arquivo.
     public void SalvarEmArquivo()
     {
         string caminho = Application.persistentDataPath + "/resultados.txt";
         string dataHora = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
         string conteudo =
+            $"Jogador: {nomeJogador}\n" + // <-- Novo: salva o nome do jogador
             $"Acertos:\n" +
             $"Adição: {acertosAdicao}/5\n" +
             $"Subtração: {acertosSubtracao}/5\n" +
             $"Multiplicação: {acertosMultiplicacao}/5\n" +
             $"Divisão: {acertosDivisao}/5\n" +
-            $"Tempo total: {Mathf.RoundToInt(tempoTotal)} segundos\n\n" +
-            $"Data: {dataHora}\n"+
+            $"Tempo total: {Mathf.RoundToInt(tempoTotal)} segundos\n" +
+            $"Data: {dataHora}\n" +
             "-----------------------\n\n";
 
         System.IO.File.AppendAllText(caminho, conteudo);
         Debug.Log("Resultados salvos em arquivo: " + caminho);
+    }
+
+   
+    /// Salva os resultados e reinicia o jogo.
+    public void SalvarEReiniciar()
+    {
+        SalvarEmArquivo(); 
+        ResetarDados();    
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CenaDoJogo");
     }
 }
