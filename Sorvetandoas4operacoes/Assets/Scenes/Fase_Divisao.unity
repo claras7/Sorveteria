@@ -293,7 +293,7 @@ MonoBehaviour:
     quantidadeSorveteDireita: 1
     spriteSorveteEsquerdo: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
-    operador: /
+    operador: " \xF7"
   - enunciado: Divida os sorvetes dos pedidos
     respostas:
     - 6
@@ -305,7 +305,7 @@ MonoBehaviour:
     quantidadeSorveteDireita: 2
     spriteSorveteEsquerdo: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: 87bb094749914c04e9b7dc34442e37f4, type: 3}
-    operador: /
+    operador: " \xF7"
   - enunciado: Divida os sorvetes dos pedidos
     respostas:
     - 8
@@ -317,7 +317,7 @@ MonoBehaviour:
     quantidadeSorveteDireita: 2
     spriteSorveteEsquerdo: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: f3284de548479024b866e0c98a03cc17, type: 3}
-    operador: /
+    operador: " \xF7"
   - enunciado: Divida os sorvetes dos pedidos
     respostas:
     - 10
@@ -329,7 +329,7 @@ MonoBehaviour:
     quantidadeSorveteDireita: 2
     spriteSorveteEsquerdo: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: d540c34dca9aac54fb4d34b4fcdf33de, type: 3}
-    operador: /
+    operador: " \xF7"
   - enunciado: Divida os sorvetes dos pedidos
     respostas:
     - 1
@@ -341,7 +341,7 @@ MonoBehaviour:
     quantidadeSorveteDireita: 3
     spriteSorveteEsquerdo: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
     spriteSorveteDireito: {fileID: 21300000, guid: e723506fec25fcb4c84a8b6f5f50bb96, type: 3}
-    operador: /
+    operador: " \xF7"
   textoEnunciado: {fileID: 1719026457}
   textosRespostas:
   - {fileID: 576194727}
