@@ -634,6 +634,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3172538228948847146, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
+      propertyPath: m_Name
+      value: play
+      objectReference: {fileID: 0}
     - target: {fileID: 4907100449807691128, guid: 7d0544f7031e9924fa7735195204ea4e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -936,6 +940,8 @@ MonoBehaviour:
   acertosSubtracao: 0
   acertosMultiplicacao: 0
   acertosDivisao: 0
+  errosTotais: []
+  errosPorFase: []
 --- !u!4 &958821061
 Transform:
   m_ObjectHideFlags: 0
