@@ -356,7 +356,7 @@ MonoBehaviour:
   grupoEsquerdo: {fileID: 524120335}
   grupoDireito: {fileID: 1476957287}
   proximaCena: "Fase_Subtra\xE7ao"
-  tipoFase: "Adi\xE7ao"
+  tipoFase: Adicao
 --- !u!4 &178539299
 Transform:
   m_ObjectHideFlags: 0

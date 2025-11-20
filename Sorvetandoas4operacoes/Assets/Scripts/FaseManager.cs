@@ -35,7 +35,7 @@ public class FaseManager : MonoBehaviour
         Time.timeScale = 1f;
 
         if (painelErro != null)
-            painelErro.SetActive(false);   
+            painelErro.SetActive(false);
 
         acertosFase = 0;
         faseAtiva = true;
@@ -87,7 +87,8 @@ public class FaseManager : MonoBehaviour
         }
         else
         {
-            MostrarErro();      // <-- MOSTRA A TELA DE ERRO
+            MostrarErro();
+            RegistrarRefeito();   // <-- ADICIONADO AQUI
         }
     }
 
@@ -98,15 +99,14 @@ public class FaseManager : MonoBehaviour
             painelErro.SetActive(true);
     }
 
-    // BOTÃO "REFazer" chama isso:
+    // BOTÃO "Refazer"
     public void RefazerQuestao()
     {
         if (painelErro != null)
             painelErro.SetActive(false);
 
         faseAtiva = true;
-
-        AtualizarUI();  // carrega novamente a mesma questão
+        AtualizarUI();
     }
 
     void AtualizarUI()
@@ -154,5 +154,30 @@ public class FaseManager : MonoBehaviour
     {
         if (textoPontuacao != null)
             textoPontuacao.text = " " + acertosFase;
+    }
+
+    // -----------------------------
+    // MÉTODO NOVO PARA CONTAR REFEITOS
+    // -----------------------------
+    void RegistrarRefeito()
+    {
+        switch (tipoFase)
+        {
+            case "Adicao":
+                GameDataManager.Instance.refeitosPorFase[0]++;
+                break;
+
+            case "Subtracao":
+                GameDataManager.Instance.refeitosPorFase[1]++;
+                break;
+
+            case "Multiplicacao":
+                GameDataManager.Instance.refeitosPorFase[2]++;
+                break;
+
+            case "Divisao":
+                GameDataManager.Instance.refeitosPorFase[3]++;
+                break;
+        }
     }
 }

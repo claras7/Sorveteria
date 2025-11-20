@@ -5,12 +5,16 @@ public class GameDataManager : MonoBehaviour
     public static GameDataManager Instance;
 
     [Header("Dados do Jogo")]
-    public string nomeJogador = ""; 
-    public float tempoTotal = 0f;  
+    public string nomeJogador = "";
+    public float tempoTotal = 0f;
+
     public int acertosAdicao = 0;
     public int acertosSubtracao = 0;
     public int acertosMultiplicacao = 0;
     public int acertosDivisao = 0;
+
+    // NOVO: quantidade de questões refeitas em cada fase
+    public int[] refeitosPorFase = new int[4];
 
     private void Awake()
     {
@@ -25,9 +29,6 @@ public class GameDataManager : MonoBehaviour
         }
     }
 
-    
-    /// Salva os acertos de cada fase.
-    
     public void SalvarFase(string tipoFase, int acertos)
     {
         switch (tipoFase)
@@ -52,8 +53,6 @@ public class GameDataManager : MonoBehaviour
         Debug.Log($"Fase {tipoFase} salva: {acertos} acertos | Tempo total: {tempoTotal:F1}s");
     }
 
-   
-    /// Reseta todos os dados do jogo para uma nova jogada.
     public void ResetarDados()
     {
         tempoTotal = 0f;
@@ -62,21 +61,30 @@ public class GameDataManager : MonoBehaviour
         acertosMultiplicacao = 0;
         acertosDivisao = 0;
         nomeJogador = "";
+
+        refeitosPorFase = new int[4]; // <-- RESETA OS REFEITOS
     }
 
-    /// Salva resultados em arquivo.
     public void SalvarEmArquivo()
     {
         string caminho = Application.persistentDataPath + "/resultados.txt";
         string dataHora = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
         string conteudo =
-            $"Jogador: {nomeJogador}\n" + // <-- Novo: salva o nome do jogador
+            $"Jogador: {nomeJogador}\n" +
             $"Acertos:\n" +
             $"Adição: {acertosAdicao}/5\n" +
             $"Subtração: {acertosSubtracao}/5\n" +
             $"Multiplicação: {acertosMultiplicacao}/5\n" +
-            $"Divisão: {acertosDivisao}/5\n" +
+            $"Divisão: {acertosDivisao}/5\n\n" +
+
+            // NOVO BLOCO — REFEITOS
+            $"Refações (erros):\n" +
+            $"Adição: {refeitosPorFase[0]}\n" +
+            $"Subtração: {refeitosPorFase[1]}\n" +
+            $"Multiplicação: {refeitosPorFase[2]}\n" +
+            $"Divisão: {refeitosPorFase[3]}\n\n" +
+
             $"Tempo total: {Mathf.RoundToInt(tempoTotal)} segundos\n" +
             $"Data: {dataHora}\n" +
             "-----------------------\n\n";
@@ -85,12 +93,10 @@ public class GameDataManager : MonoBehaviour
         Debug.Log("Resultados salvos em arquivo: " + caminho);
     }
 
-   
-    /// Salva os resultados e reinicia o jogo.
     public void SalvarEReiniciar()
     {
-        SalvarEmArquivo(); 
-        ResetarDados();    
+        SalvarEmArquivo();
+        ResetarDados();
         UnityEngine.SceneManagement.SceneManager.LoadScene("CenaDoJogo");
     }
 }
