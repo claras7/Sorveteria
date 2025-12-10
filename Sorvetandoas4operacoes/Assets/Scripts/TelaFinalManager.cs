@@ -10,11 +10,11 @@ public class TelaFinalManager : MonoBehaviour
 
     void Start()
     {
-        // 1️⃣ Mensagem de parabéns
+        // Mensagem de parabéns
         if (textoMensagem != null)
             textoMensagem.text = "Parabéns, você concluiu todas as fases!";
 
-        // 2️⃣ Tempo total do jogo
+        //  Tempo total do jogo
         if (textoTempo != null)
         {
             int totalSegundos = Mathf.RoundToInt(GameDataManager.Instance.tempoTotal);

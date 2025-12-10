@@ -71,7 +71,7 @@ public class FaseManager : MonoBehaviour
         AtualizarUI();
     }
 
-    // VERIFICA RESPOSTA
+    // Verifica resposta
     public void VerificarResposta(int indiceEscolhido)
     {
         if (!faseAtiva) return;
@@ -88,11 +88,11 @@ public class FaseManager : MonoBehaviour
         else
         {
             MostrarErro();
-            RegistrarRefeito();   // <-- ADICIONADO AQUI
+            RegistrarRefeito();   
         }
     }
 
-    // MOSTRA O ERRO
+    // Mostra erro
     void MostrarErro()
     {
         if (painelErro != null)
@@ -156,9 +156,7 @@ public class FaseManager : MonoBehaviour
             textoPontuacao.text = " " + acertosFase;
     }
 
-    // -----------------------------
-    // MÉTODO NOVO PARA CONTAR REFEITOS
-    // -----------------------------
+   
     void RegistrarRefeito()
     {
         switch (tipoFase)
